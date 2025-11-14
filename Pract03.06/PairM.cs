@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.CSharp.RuntimeBinder;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,8 +24,8 @@ namespace Pract03._06
         /// </summary>
         public Pair()
         {
-            A = 1;
-            B = 1;
+            A = 0;
+            B = 0;
         }
         /// <summary>
         /// Пара чисел с параметрами
@@ -81,16 +82,13 @@ namespace Pract03._06
         public int Rub { get; set; }
         public int Cop { get; set; }
 
-        public Money()
+        public Money() : base ()
         {
-            Rub = 0;
-            Cop = 0;
+            
         }
 
-        public Money(int rub, int cop)
+        public Money(int rub, int cop) : base (rub, cop)
         {
-            Rub = rub;
-            Cop = cop;
             if (cop >= 100)
             {
                 Rub += cop / 100;
